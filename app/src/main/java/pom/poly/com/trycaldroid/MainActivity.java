@@ -18,7 +18,7 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
 
 
-    private CaldroidFragment caldroidFragment;
+    private CaldroidSampleCustomFragment caldroidFragment;
 
     private void setCustomResourceForDates() {
         Calendar cal = Calendar.getInstance();
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Setup caldroid fragment
         // **** If you want normal CaldroidFragment, use below line ****
-        caldroidFragment = new CaldroidFragment();
+        caldroidFragment = new CaldroidSampleCustomFragment();
 
         if (savedInstanceState != null) {
             caldroidFragment.restoreStatesFromKey(savedInstanceState,
