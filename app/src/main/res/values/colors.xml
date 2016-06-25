@@ -15,5 +15,6 @@
     <color name="logoutButtonBackground">#c62828</color>
     <color name="logoutButtonBackground_pressed">#3e2723</color>
 
-    <color name="next_month_date">#F57F17</color>
+    <color name="this_month_date">#F57F17</color>
+    <color name="today_border">#D50000</color>
 </resources>
