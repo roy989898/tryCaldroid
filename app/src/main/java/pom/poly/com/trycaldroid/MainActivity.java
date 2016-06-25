@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.roomorama.caldroid.CaldroidFragment;
@@ -16,13 +15,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class MainActivity extends AppCompatActivity {
 
 
     private CaldroidFragment caldroidFragment;
+
     private void setCustomResourceForDates() {
         Calendar cal = Calendar.getInstance();
 
@@ -42,7 +39,30 @@ public class MainActivity extends AppCompatActivity {
             caldroidFragment.setBackgroundDrawableForDate(green, greenDate);
             caldroidFragment.setTextColorForDate(R.color.white, blueDate);
             caldroidFragment.setTextColorForDate(R.color.white, greenDate);
+
         }
+    }
+
+    private void setcaldroidArgument(CaldroidFragment caldroidFragment) {
+        Bundle args = new Bundle();
+        Calendar cal = Calendar.getInstance();
+        args.putInt(CaldroidFragment.MONTH, cal.get(Calendar.MONTH) + 1);
+        args.putInt(CaldroidFragment.YEAR, cal.get(Calendar.YEAR));
+        args.putBoolean(CaldroidFragment.ENABLE_SWIPE, true);
+        args.putBoolean(CaldroidFragment.SIX_WEEKS_IN_CALENDAR, true);
+        args.putInt(CaldroidFragment.THEME_RESOURCE, com.caldroid.R.style.CaldroidDefaultDark);
+
+        // Uncomment this to customize startDayOfWeek
+        // args.putInt(CaldroidFragment.START_DAY_OF_WEEK,
+        // CaldroidFragment.TUESDAY); // Tuesday
+
+        // Uncomment this line to use Caldroid in compact mode
+        // args.putBoolean(CaldroidFragment.SQUARE_TEXT_VIEW_CELL, false);
+
+        // Uncomment this line to use dark theme
+//            args.putInt(CaldroidFragment.THEME_RESOURCE, com.caldroid.R.style.CaldroidDefaultDark);
+
+        caldroidFragment.setArguments(args);
     }
 
     @Override
@@ -62,24 +82,7 @@ public class MainActivity extends AppCompatActivity {
         }
         // If activity is created from fresh
         else {
-            Bundle args = new Bundle();
-            Calendar cal = Calendar.getInstance();
-            args.putInt(CaldroidFragment.MONTH, cal.get(Calendar.MONTH) + 1);
-            args.putInt(CaldroidFragment.YEAR, cal.get(Calendar.YEAR));
-            args.putBoolean(CaldroidFragment.ENABLE_SWIPE, true);
-            args.putBoolean(CaldroidFragment.SIX_WEEKS_IN_CALENDAR, true);
-
-            // Uncomment this to customize startDayOfWeek
-            // args.putInt(CaldroidFragment.START_DAY_OF_WEEK,
-            // CaldroidFragment.TUESDAY); // Tuesday
-
-            // Uncomment this line to use Caldroid in compact mode
-            // args.putBoolean(CaldroidFragment.SQUARE_TEXT_VIEW_CELL, false);
-
-            // Uncomment this line to use dark theme
-//            args.putInt(CaldroidFragment.THEME_RESOURCE, com.caldroid.R.style.CaldroidDefaultDark);
-
-            caldroidFragment.setArguments(args);
+            setcaldroidArgument(caldroidFragment);
         }
 
         setCustomResourceForDates();
