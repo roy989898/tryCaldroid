@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         args.putInt(CaldroidFragment.YEAR, cal.get(Calendar.YEAR));
         args.putBoolean(CaldroidFragment.ENABLE_SWIPE, true);
         args.putBoolean(CaldroidFragment.SIX_WEEKS_IN_CALENDAR, true);
-        args.putInt(CaldroidFragment.THEME_RESOURCE, com.caldroid.R.style.CaldroidDefaultDark);
+        args.putInt(CaldroidFragment.THEME_RESOURCE, R.style.CaldroidDefaultYellow);
 
         // Uncomment this to customize startDayOfWeek
         // args.putInt(CaldroidFragment.START_DAY_OF_WEEK,
